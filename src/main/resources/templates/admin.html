@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+	<title>Hangman Game - Admin page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="span12">
+    <table id="myTableId" dt:table="true">
+        <thead>
+            <tr>
+                <th>Session Id</th>
+                <th>Status</th>
+                <th>Wrong attempts</th>
+                <th>Attempts</th>
+                <th>Playing for</th>
+                <th>Guessed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="game : ${games}">
+                <td th:text="${game?.sessionId}"></td>
+                <td th:text="${game?.status}"></td>
+                <td th:text="${game?.wrongAttempts}"></td>
+                <td th:text="${game?.attempts}"></td>
+                <td th:text="${game?.expectedPhrase}"></td>
+                <td th:text="${game?.currentPhrase}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
